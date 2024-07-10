@@ -1,0 +1,24 @@
+---
+- name: Installing and Running Apache
+  hosts: all
+  become: True
+  become_user: root
+
+  tasks:
+    - name: Install Apache
+      apt:
+        name: apache2
+        update_cache: yes  
+        state: present
+
+    - name: Stop nginx
+      service:
+        name: nginx
+        state: stopped
+
+    - name: Run Apache
+      service:
+        name: apache2
+        state: started
+
+
