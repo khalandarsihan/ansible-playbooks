@@ -1,0 +1,12 @@
+---
+- name: Running 2 tasks
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Test-connectivity
+      ping:
+
+    - name: Display Hello World
+      debug:
+        msg: "Hello World"
